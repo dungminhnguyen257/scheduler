@@ -8,9 +8,12 @@ import {
   getInterview,
   getInterviewersForDay,
 } from "helpers/selectors";
+
 const GET_DAYS = "/api/days";
 const GET_APPOINTMENTS = "/api/appointments";
 const GET_INTERVIEWERS = "/api/interviewers";
+const NEW_APPOINTMENT_PREFIX = "/api/appointments/";
+
 export default function Application(props) {
   const [state, setState] = useState({
     day: "Monday",
@@ -33,6 +36,7 @@ export default function Application(props) {
           time={appointment.time}
           interview={interview}
           interviewers={interviewers}
+          bookInterview={bookInterview}
         />
       );
     }
@@ -51,6 +55,25 @@ export default function Application(props) {
       }));
     });
   }, []);
+
+  function bookInterview(id, interview) {
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview },
+    };
+
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment,
+    };
+
+    return axios
+      .put(NEW_APPOINTMENT_PREFIX + appointment.id, { interview: interview })
+      .then((res) => {
+        setState({ ...state, appointments });
+      });
+  }
+
   return (
     <main className="layout">
       <section className="sidebar">
@@ -72,7 +95,7 @@ export default function Application(props) {
       <section className="schedule">
         {dailyAppointments}
         <section className="appointment">
-          <Appointment key="last" time="5pm" />
+          <Appointment key="last" time="5pm" bookInterview={bookInterview} />
         </section>
       </section>
     </main>
