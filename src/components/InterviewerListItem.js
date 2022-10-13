@@ -13,6 +13,7 @@ export default function InterviewerListItem(props) {
         className="interviewers__item-image"
         src={props.avatar}
         alt={props.name}
+        data-testid="interviewer-list-item"
       />
       {props.selected && props.name}
     </li>
