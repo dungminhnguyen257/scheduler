@@ -49,12 +49,12 @@ Storybook will start at port 9009: http://localhost:9009/
 
 #### This is the home page of the Scheduler Web App
 
-![]()
+![Home page](https://github.com/dungminhnguyen257/scheduler/blob/master/docs/Home%20page.png?raw=true)
 
 #### The pop up window displays a warning message when the user want to delete an appointment
 
-![]()
+![Warning message](https://github.com/dungminhnguyen257/scheduler/blob/master/docs/Warning%20message.png?raw=true)
 
 #### Empty input from the user triggers an error message
 
-![]()
+![Error message](https://github.com/dungminhnguyen257/scheduler/blob/master/docs/Error%20message.png?raw=true)
