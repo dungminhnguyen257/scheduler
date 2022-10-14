@@ -19,15 +19,21 @@ export default function Application(props) {
     (appointment) => {
       const interview = getInterview(state, appointment.interview);
       return (
-        <Appointment
+        <article
+          className="appointment"
+          data-testid="appointment"
           key={appointment.id}
-          id={appointment.id}
-          time={appointment.time}
-          interview={interview}
-          interviewers={interviewers}
-          bookInterview={bookInterview}
-          cancelInterview={cancelInterview}
-        />
+        >
+          <Appointment
+            key={appointment.id}
+            id={appointment.id}
+            time={appointment.time}
+            interview={interview}
+            interviewers={interviewers}
+            bookInterview={bookInterview}
+            cancelInterview={cancelInterview}
+          />
+        </article>
       );
     }
   );
@@ -52,14 +58,14 @@ export default function Application(props) {
       </section>
       <section className="schedule">
         {dailyAppointments}
-        <section className="appointment">
+        <article className="appointment">
           <Appointment
             key="last"
             time="5pm"
             bookInterview={bookInterview}
             cancelInterview={cancelInterview}
           />
-        </section>
+        </article>
       </section>
     </main>
   );
