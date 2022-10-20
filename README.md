@@ -45,6 +45,10 @@ Storybook will start at port 9009: http://localhost:9009/
 - React-dom 16.9.0
 - React-scripts 3.4.4
 
+## API Server
+
+To connect our application to an API server to persist our interview data to a database, fork and clone this https://github.com/lighthouse-labs/scheduler-api then follow the instruction.
+
 ## Screenshot
 
 #### This is the home page of the Scheduler Web App
