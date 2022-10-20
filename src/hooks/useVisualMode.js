@@ -17,8 +17,13 @@ export default function useVisualMode(initialMode) {
     if (history.length === 1) {
       return;
     }
-    history.pop();
-    setMode(history[history.length - 1]);
+    const newHistory = [...history];
+
+    newHistory.pop();
+
+    setHistory(newHistory);
+
+    setMode(newHistory[newHistory.length - 1]);
   }
-  return { mode, transition, back, history };
+  return { mode, transition, back };
 }
